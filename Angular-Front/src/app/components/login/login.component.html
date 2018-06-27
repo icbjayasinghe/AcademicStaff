@@ -1,0 +1,23 @@
+
+<div>
+  <hr>
+    <form (submit)="loginUser()">
+      <h3>Login</h3>
+        <div class="form-group ">
+          <label for="exampleInputEmail1" class="bmd-label-floating">Email address</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="email">
+          <span class="bmd-help">We'll never share your email with anyone else.</span>
+          <span class="bmd-help">And this is probably from a second plugin showing in a non-optimal way</span>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="password">
+        </div>
+        <div class="form-group">
+            <button type="reset" class="btn btn-raised btn-secondary">Cancel</button>
+            <button type="submit" class="btn btn-raised btn-primary">Login</button>    
+          
+        </div>
+    </form>
+  <hr>
+</div>
