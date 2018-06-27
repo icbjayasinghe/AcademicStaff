@@ -72,9 +72,38 @@ router.post("/login",function(req,res){
     }); 
 });
 
-router.post('/profile', passport.authenticate('jwt', { session: false }), function(req, res) {
-        res.json({user:req.user});
+router.post('/profile', verifyToken, (req,res)=>{
+    jwt.verify(req.token, config.secret, function(err, mqData){
+        if(err){
+            res.json({status:"Access denied"});
+        }else{
+            res.json({
+                status:"Access granted",
+                data:myData
+            });
+        };
+    });
+});
+
+function verifyToken(req, res, next){
+    if(typeof(req.headers['authorization'])!= 'undefined' && req.headers['authorization']!= 'undefined'){
+        var userToken = req.headers['authorization'];
+        if(userToken !='undefined'){
+            req.token = userToken;
+            next();
+        }else{
+            res.json({msg:"Unauthorized Request.."});
+        }
+
+    }else{
+        res.json({msg:"Unauthorized Request.."});
     }
-);
+
+}
+
+// router.post('/profile', passport.authenticate('jwt', { session: false }), function(req, res) {
+//         res.json({user:req.user});
+//     }
+// );
 
 module.exports = router;

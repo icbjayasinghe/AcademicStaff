@@ -7,6 +7,8 @@ const saltRounds = 10;
 // const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
 
+const jwt = require('jsonwebtoken');
+
 const userSchema = new schema({
     username:{type:String, required:true},
     name:{type:String, required:true},
