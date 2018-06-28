@@ -7,6 +7,8 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
   user:any;
+  authtoken:any;
+
   constructor(
     private http:Http
   ) { }
@@ -22,5 +24,13 @@ export class AuthService {
     headers.append('Content-Type','application/json')
     return this.http.post("http://localhost:3000/users/login",user,{headers:headers}).pipe(map(res=>res.json())) ;
   
-  }
+  };
+
+  storeData(token, userdata){
+    localStorage.setItem("tokenid", token);
+    localStorage.setItem("user", JSON.stringify(userdata));
+    this.authtoken = token;
+    this.user = userdata;
+    
+  };
 }
