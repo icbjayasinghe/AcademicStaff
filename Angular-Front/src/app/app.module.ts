@@ -10,11 +10,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
-import { AuthService } from './service/auth.service'
+import { AuthService } from './service/auth.service';
+import { ProfileComponent } from './components/profile/profile.component'
 
 const applicationRoutes:Routes =[
   { path:'login', component:LoginComponent},
-  { path:'register', component:RegisterComponent}
+  { path:'register', component:RegisterComponent},
+  { path:'profile', component:ProfileComponent}
 ];
 
 
@@ -23,7 +25,8 @@ const applicationRoutes:Routes =[
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
