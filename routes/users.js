@@ -57,7 +57,8 @@ router.post("/login",function(req,res){
                 res.json(
                     {
                         state:true,
-                        token:"JWT " + token,
+                        //token:"JWT " + token,
+                        token:token,
                         user:{
                             id:user._id,
                             name:user.name,
@@ -73,8 +74,8 @@ router.post("/login",function(req,res){
     }); 
 });
 
-router.post('/profile', verifyToken, (req,res)=>{
-    jwt.verify(req.token, config.secret, function(err, mqData){
+router.get('/profile', verifyToken, (req,res)=>{
+    jwt.verify(req.token, config.secret, function(err, myData){
         if(err){
             res.json({status:"Access denied"});
         }else{
