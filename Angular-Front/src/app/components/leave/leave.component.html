@@ -1,6 +1,6 @@
 <div class="container col-md-8">
   <h2><b>LEAVE REQUEST</b></h2>
-    <form>
+    <form class="form-horizontal" (submit)="leaveRequest()">
       <div class="row">
         <div class="col-md-6">
             <h5>Leave Starting From</h5>
@@ -12,44 +12,45 @@
       <div class="row">
           <div class="col-md-6">
               <div class="row">
-                <div class="col-md-6">
-                  <input type="date" class="form-control">
+                <div class="col-md-12">
+                  <input type="date" class="form-control" style="text-align: center" name="sdate" [(ngModel)]="sdate">
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <select id="inputState" class="form-control">
                         <option selected>Full Day</option>
                         <option>Half Day</option>
                         <option>Short Leaves</option>
                     </select>
-                </div>
+                </div> -->
               </div>
 
               
           </div>
           <div class="col-md-6">
               <div class="row">
-                  <div class="col-md-6">
-                    <input type="date" class="form-control">
+                  <div class="col-md-12">
+                    <input type="date" class="form-control" style="text-align: center" name="edate" [(ngModel)]="edate">
                   </div>
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                       <select id="inputState" class="form-control">
                         <option selected>Full Day</option>
                         <option>Half Day</option>
                         <option>Short Leaves</option>
                       </select>
-                  </div>
+                  </div> -->
                 </div>
           </div>
         </div>
-
+        <hr>
+        <br>
         <div class="form-group">
           <label for="formGroupExampleInput">Reason for leave</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="text-align: center" name="reason" [(ngModel)]="reason"></textarea>
         </div>
         <h5>Emergency Contact Details :</h5>
         <div class="form-group">
           <label for="formGroupExampleInput2">Address</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="text-align: center" name="address" [(ngModel)]="address"></textarea>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -58,12 +59,14 @@
                       Mobile number 
                     </div>
                     <div >
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" style="text-align: center" name="mobile" [(ngModel)]="mobile">
                     </div>
               
               
             </div>
           </div>
+          <button type="submit" class="btn btn-outline-success">Apply</button>
       </form>
+      
 </div>
 

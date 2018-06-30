@@ -2,12 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../models/user");
+const Request = require("../models/request")
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const passport = require('passport');
+// var bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 
-
+// router.use(bodyParser.json());
 router.get("",function(req,res){
     res.send("hello users");
 });
@@ -101,7 +103,21 @@ function verifyToken(req, res, next){
         res.json({msg:"Unauthorized Request.."});
     }
 
-}
+};
+
+router.post('/request',function(req,res){
+    
+    const newRequest = req.body;
+    Request.addRequest(newRequest,function(err,newRequest){
+        if(err){
+            throw err;
+        }
+        res.json(newRequest);
+    });
+
+})
+
+
 
 // router.post('/profile', passport.authenticate('jwt', { session: false }), function(req, res) {
 //         res.json({user:req.user});

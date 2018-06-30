@@ -15,6 +15,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './service/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LeaveComponent } from './components/leave/leave.component';
+import { LeaveService } from './service/leave.service'
 
 
 const applicationRoutes:Routes =[
@@ -45,7 +46,7 @@ const applicationRoutes:Routes =[
     NgFlashMessagesModule.forRoot()
 
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, LeaveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
