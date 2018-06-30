@@ -110,9 +110,12 @@ router.post('/request',function(req,res){
     const newRequest = req.body;
     Request.addRequest(newRequest,function(err,newRequest){
         if(err){
-            throw err;
+            res.json({state:false, msg:"Somthing went wrong"});
         }
-        res.json(newRequest);
+        if(newRequest){
+            res.json({state:true, msg:"Successfully requested"});
+        }
+        
     });
 
 })

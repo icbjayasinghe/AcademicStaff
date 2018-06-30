@@ -23,7 +23,7 @@ const applicationRoutes:Routes =[
   { path:'register', component:RegisterComponent},
   { path:'profile', component:ProfileComponent},
   { path: 'dashboard', component:DashboardComponent},
-  { path: 'leave', component:LeaveComponent}
+  { path: 'leave/:LeaveCat', component:LeaveComponent}
   // { path:'profile', component:ProfileComponent, canActivate: [AuthGuard]}
 ];
 
