@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { LeaveService } from '../../service/leave.service';
 import { AuthService } from '../../service/auth.service';
+import { NgFlashMessageService } from 'ng-flash-messages';
+import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'app-leave',
@@ -21,7 +24,9 @@ export class LeaveComponent implements OnInit {
   constructor(
     private leaveService:LeaveService,
     private authService:AuthService,
-    private activatedRouter:ActivatedRoute
+    private activatedRouter:ActivatedRoute,
+    private flashMessage:NgFlashMessageService,
+    private router:Router
   ) { 
     activatedRouter.params.subscribe(params=>{
       this.leaveCat=params.LeaveCat;
@@ -46,7 +51,34 @@ export class LeaveComponent implements OnInit {
       mobile:this.mobile
     };
     this.leaveService.addLeave(request).subscribe(res=>{
-      console.log(res);
+      if(res.state){
+        this.flashMessage.showFlashMessage({
+          // Array of messages each will be displayed in new line
+          messages: ["Successfully requested.."], 
+          // Whether the flash can be dismissed by the user defaults to false
+          dismissible: true, 
+          // Time after which the flash disappears defaults to 2000ms
+          timeout: 4000,
+          // Type of flash message, it defaults to info and success, warning, danger types can also be used
+          type: 'success'
+        });
+        this.router.navigate(['/dashboard']);
+      }
+      else{
+        this.flashMessage.showFlashMessage({
+          // Array of messages each will be displayed in new line
+          messages: ["Somthing went wrong"], 
+          // Whether the flash can be dismissed by the user defaults to false
+          dismissible: true, 
+          // Time after which the flash disappears defaults to 2000ms
+          timeout: 4000,
+          // Type of flash message, it defaults to info and success, warning, danger types can also be used
+          type: 'danger'
+        });
+        this.router.navigate(['/dashboard']);
+
+      }
+      
     })
   }
 
