@@ -13,12 +13,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './service/auth.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './service/auth.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LeaveComponent } from './components/leave/leave.component';
 
 
 const applicationRoutes:Routes =[
   { path:'login', component:LoginComponent},
   { path:'register', component:RegisterComponent},
   { path:'profile', component:ProfileComponent},
+  { path: 'dashboard', component:DashboardComponent},
+  { path: 'leave', component:LeaveComponent}
   // { path:'profile', component:ProfileComponent, canActivate: [AuthGuard]}
 ];
 
@@ -29,7 +33,9 @@ const applicationRoutes:Routes =[
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    DashboardComponent,
+    LeaveComponent
   ],
   imports: [
     BrowserModule,
