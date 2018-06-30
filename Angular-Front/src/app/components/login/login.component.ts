@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           // Type of flash message, it defaults to info and success, warning, danger types can also be used
           type: 'success'
         });
-        //this.router.navigate(['/login']);
+        this.router.navigate(['/dashboard']);
 
       }
       else{
