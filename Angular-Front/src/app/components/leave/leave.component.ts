@@ -44,6 +44,7 @@ export class LeaveComponent implements OnInit {
     const request = {
       email:this.email,
       leaveCat:this.leaveCat,
+      status:"pending",
       sdate:this.sdate,
       edate:this.edate,
       reason:this.reason,

@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 // leave request
 var requestSchema =  mongoose.Schema({
     email:{type:String, required:true},
+    status:{type:String, required:true},
     leaveCat:{type:String, required:true},
     sdate:{type:String, required:true},
     edate:{type:String, required:true},

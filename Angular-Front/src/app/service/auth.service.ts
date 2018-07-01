@@ -3,6 +3,8 @@ import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { tokenNotExpired } from 'angular2-jwt';
 
+//import 'rxjs.'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,7 +59,16 @@ export class AuthService {
   }
 
   loggedIn() {
-    return tokenNotExpired();
+    // return false;
+    // const tocken = localStorage.getItem("tokenid");
+    // if(tocken){
+    //   return true;
+    // }
+    // else{
+    //   return false;
+    // }
+    // console.log(tokenNotExpired());
+    // return tokenNotExpired();
   }
 
   // loggedIn(){

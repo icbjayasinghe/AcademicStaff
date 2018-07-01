@@ -15,7 +15,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './service/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LeaveComponent } from './components/leave/leave.component';
-import { LeaveService } from './service/leave.service'
+import { LeaveService } from './service/leave.service';
+import { MyleaveComponent } from './components/myleave/myleave.component'
 
 
 const applicationRoutes:Routes =[
@@ -23,7 +24,8 @@ const applicationRoutes:Routes =[
   { path:'register', component:RegisterComponent},
   { path:'profile', component:ProfileComponent},
   { path: 'dashboard', component:DashboardComponent},
-  { path: 'leave/:LeaveCat', component:LeaveComponent}
+  { path: 'leave/:LeaveCat', component:LeaveComponent},
+  { path: 'myleaves', component:MyleaveComponent}
   // { path:'profile', component:ProfileComponent, canActivate: [AuthGuard]}
 ];
 
@@ -36,7 +38,8 @@ const applicationRoutes:Routes =[
     RegisterComponent,
     ProfileComponent,
     DashboardComponent,
-    LeaveComponent
+    LeaveComponent,
+    MyleaveComponent
   ],
   imports: [
     BrowserModule,

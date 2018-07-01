@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           // Whether the flash can be dismissed by the user defaults to false
           dismissible: true, 
           // Time after which the flash disappears defaults to 2000ms
-          timeout: false,
+          timeout: 4000,
           // Type of flash message, it defaults to info and success, warning, danger types can also be used
           type: 'success'
         });
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           // Whether the flash can be dismissed by the user defaults to false
           dismissible: true, 
           // Time after which the flash disappears defaults to 2000ms
-          timeout: false,
+          timeout: 4000,
           // Type of flash message, it defaults to info and success, warning, danger types can also be used
           type: 'danger'
         });

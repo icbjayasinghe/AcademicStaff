@@ -118,7 +118,12 @@ router.post('/request',function(req,res){
         
     });
 
-})
+});
+
+router.get('/myrequest/:email',function(req,res){
+    const email=req.params;
+    res.json(email);
+});
 
 
 
