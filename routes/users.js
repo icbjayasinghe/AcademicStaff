@@ -121,8 +121,16 @@ router.post('/request',function(req,res){
 });
 
 router.get('/myrequest/:email',function(req,res){
-    const email=req.params;
-    res.json(email);
+    var email ='';
+    email = req.params.email;
+    Request.findRequestbyEmail(email,function(err,email){
+        if(err){
+            res.json(err);
+        }
+        if(email1){
+            res.json(email);
+        }
+    })
 });
 
 

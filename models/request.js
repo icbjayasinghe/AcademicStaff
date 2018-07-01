@@ -15,3 +15,8 @@ var Request = module.exports = mongoose.model("requests",requestSchema);
 module.exports.addRequest = function(request,callback){
     Request.create(request,callback);
 }
+
+module.exports.findRequestbyEmail = function(email, callback){
+    const quary = {email:email};
+    Request.find(quary,callback);
+}

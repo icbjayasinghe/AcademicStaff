@@ -30,7 +30,7 @@ module.exports.saveUser = function(newUser,callback){
 };
 
 module.exports.findByEmail = function(email, callback){
-    const quary = {email:email};
+    const quary = {email:email,status:"pending"};
     User.findOne(quary,callback);
 }
 
@@ -46,3 +46,4 @@ module.exports.passwordCheck = function(plainpassword,hash, callback){
 module.exports.findUserbyId =function(id,callback){
     User.findOne(id,callback);  
 };
+
