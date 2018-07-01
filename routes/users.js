@@ -123,12 +123,12 @@ router.post('/request',function(req,res){
 router.get('/myrequest/:email',function(req,res){
     var email ='';
     email = req.params.email;
-    Request.findRequestbyEmail(email,function(err,email){
+    Request.findRequestbyEmail(email,function(err,email1){
         if(err){
             res.json(err);
         }
         if(email1){
-            res.json(email);
+            res.json(email1);
         }
     })
 });
