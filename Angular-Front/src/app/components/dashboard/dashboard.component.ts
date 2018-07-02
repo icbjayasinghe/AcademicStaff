@@ -8,6 +8,9 @@ import { LeaveService } from '../../service/leave.service';
 })
 export class DashboardComponent implements OnInit {
   AllStatus: any=[];
+
+  id : Number;
+ 
   constructor(
     private leaveService:LeaveService
   ) { }
@@ -18,5 +21,17 @@ export class DashboardComponent implements OnInit {
       console.log(this.AllStatus);
     });
   }
+
+  delete(id,index){
+    this.leaveService.deleteMyRequest(id).subscribe(result=>{
+      if(result.status){
+        this.AllStatus.splice(index,1);
+      }
+    });
+
+
+  }
+
+  
 
 }

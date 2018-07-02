@@ -137,12 +137,12 @@ router.get('/myrequest/:email',function(req,res){
 
 router.delete('/myrequestdelete/:id',function(req,res){
     var id = req.params.id;
-    Request.deleteMyRequest(id,function(err,id){
+    Request.deleteMyRequest(id,function(err,id1){
         if(err){
             res.json(err);
         }
-        if(id){
-            res.json(id);
+        if(id1){
+            res.json({status:true,msg:id1});
         }
     })
 })
