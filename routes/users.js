@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../models/user");
-const Request = require("../models/request")
+const Request = require("../models/request");
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const passport = require('passport');
@@ -135,7 +135,17 @@ router.get('/myrequest/:email',function(req,res){
     })
 });
 
-
+router.delete('/myrequestdelete/:id',function(req,res){
+    var id = req.params.id;
+    Request.deleteMyRequest(id,function(err,id){
+        if(err){
+            res.json(err);
+        }
+        if(id){
+            res.json(id);
+        }
+    })
+})
 
 // router.post('/profile', passport.authenticate('jwt', { session: false }), function(req, res) {
 //         res.json({user:req.user});

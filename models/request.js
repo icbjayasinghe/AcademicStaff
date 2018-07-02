@@ -25,3 +25,8 @@ module.exports.findPendingRequest = function(callback,limit){
     const quary = {status:"pending"};
     Request.find(quary,callback).limit(limit);
 }
+
+module.exports.deleteMyRequest = function(id,callback){
+    const quary = {_id:id};
+    Request.deleteOne(quary,callback);
+}
