@@ -29,9 +29,10 @@ export class LoginComponent implements OnInit {
     }
     this.authService.loginUser(user).subscribe(res=>{
       if(res.state){
+        const type= res.user["type"];
+        // console.log(type);
         this.authService.storeData(res.token, res.user);
         this.flashMessage.showFlashMessage({
-          // Array of messages each will be displayed in new line
           messages: ["You're loggedin"], 
           // Whether the flash can be dismissed by the user defaults to false
           dismissible: true, 
@@ -40,8 +41,13 @@ export class LoginComponent implements OnInit {
           // Type of flash message, it defaults to info and success, warning, danger types can also be used
           type: 'success'
         });
-        this.router.navigate(['/dashboard']);
-
+        if(type=="staff"){
+          this.router.navigate(['/dashboard']);
+        }
+        if(type=="admin"){
+          this.router.navigate(['/admindash']);
+        }
+        
       }
       else{
         this.flashMessage.showFlashMessage({

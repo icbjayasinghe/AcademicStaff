@@ -16,7 +16,11 @@ import { AuthGuard } from './service/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { LeaveService } from './service/leave.service';
-import { MyleaveComponent } from './components/myleave/myleave.component'
+import { MyleaveComponent } from './components/myleave/myleave.component';
+import { AdmindashComponent } from './components/admindash/admindash.component';
+import { AdminrequestComponent } from './components/adminrequest/adminrequest.component';
+import { AdminsidebarComponent } from './components/adminsidebar/adminsidebar.component';
+import { AdminmainComponent } from './components/adminmain/adminmain.component'
 
 
 const applicationRoutes:Routes =[
@@ -25,7 +29,9 @@ const applicationRoutes:Routes =[
   { path:'profile', component:ProfileComponent},
   { path: 'dashboard', component:DashboardComponent},
   { path: 'leave/:LeaveCat', component:LeaveComponent},
-  { path: 'myleaves', component:MyleaveComponent}
+  { path: 'myleaves', component:MyleaveComponent},
+  { path: 'admindash', component:AdmindashComponent},
+  { path: 'adminrequest', component:AdminrequestComponent}
   // { path:'profile', component:ProfileComponent, canActivate: [AuthGuard]}
 ];
 
@@ -39,7 +45,11 @@ const applicationRoutes:Routes =[
     ProfileComponent,
     DashboardComponent,
     LeaveComponent,
-    MyleaveComponent
+    MyleaveComponent,
+    AdmindashComponent,
+    AdminrequestComponent,
+    AdminsidebarComponent,
+    AdminmainComponent
   ],
   imports: [
     BrowserModule,

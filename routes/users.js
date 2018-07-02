@@ -19,7 +19,8 @@ router.post("/register",function(req,res){
         username:req.body.username,
         name:req.body.name,
         email:req.body.email,
-        password:req.body.password
+        password:req.body.password,
+        type:"staff"
     });
 
     User.saveUser(newUser,function(err,user){
@@ -36,6 +37,7 @@ router.post("/register",function(req,res){
 router.post("/login",function(req,res){
     const email = req.body.email;
     const password = req.body.password;
+    const type = req.body.type;
 
     User.findByEmail(email, function(err, user){
         if(err) throw err;
@@ -49,8 +51,8 @@ router.post("/login",function(req,res){
                 id:user._id,
                 name:user.name,
                 username:user.username,
-                email:user.email
-
+                email:user.email,
+                type:user.type
             }
             
             if(match){
@@ -65,8 +67,8 @@ router.post("/login",function(req,res){
                             id:user._id,
                             name:user.name,
                             username:user.username,
-                            email:user.email
-                            
+                            email:user.email,
+                            type:user.type
                         }
                         
                     }

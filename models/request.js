@@ -20,3 +20,8 @@ module.exports.findRequestbyEmail = function(email, callback){
     const quary = {email:email, status:"pending"};
     Request.find(quary,callback);
 }
+
+module.exports.findPendingRequest = function(callback,limit){
+    const quary = {status:"pending"};
+    Request.find(quary,callback).limit(limit);
+}

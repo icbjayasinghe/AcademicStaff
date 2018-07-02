@@ -11,7 +11,8 @@ const userSchema = new schema({
     username:{type:String, required:true},
     name:{type:String, required:true},
     email:{type:String, required:true},
-    password:{type:String, required:true}
+    password:{type:String, required:true},
+    type:{type:String, required:true}
 });
 
 const User = module.exports = mongoose.model("User",userSchema);
@@ -30,7 +31,7 @@ module.exports.saveUser = function(newUser,callback){
 };
 
 module.exports.findByEmail = function(email, callback){
-    const quary = {email:email,status:"pending"};
+    const quary = {email:email};
     User.findOne(quary,callback);
 }
 

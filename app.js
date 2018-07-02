@@ -19,6 +19,7 @@ const config = require('./config/database');
 const connection = mongoose.connect(config.database);
 
 const user = require('./routes/users');
+const admin = require('./routes/admin');
 
 if(connection){
     console.log("DB connected");
@@ -29,6 +30,7 @@ if(connection){
 app.use(express.static(path.join(__dirname,"public")));
 
 app.use('/users',user);
+app.use('/admin',admin);
 app.listen(port,function(){
     console.log("Listen port " +port);
 });

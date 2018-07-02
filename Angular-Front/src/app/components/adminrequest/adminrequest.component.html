@@ -1,0 +1,36 @@
+<app-adminsidebar></app-adminsidebar>
+<div class="container">
+    <h4>Leave Requests</h4>
+    <div class="container">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Leave Type</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Data</th>
+            <th scope="col">Reason</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor ="let status of AllStatus; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{status.email}}</td>
+            <td>{{status.leaveCat}}</td>
+            <td>{{status.sdate}}</td>
+            <td>{{status.edate}}</td>
+            <td>{{status.reason}}</td>
+            <td><a href="#" class="btn btn-primary btn-m active" role="button" aria-pressed="true">Confirm</a>
+              
+            </td>
+            <td><a href="#" class="btn btn-danger btn-m active" role="button" aria-pressed="true">Reject</a></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+  </div>
