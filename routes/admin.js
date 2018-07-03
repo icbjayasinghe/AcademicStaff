@@ -15,4 +15,7 @@ router.get('/allrequest',function(req,res){
         }
     })
 });
+
+// router.delete('')
+
 module.exports = router;

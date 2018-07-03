@@ -152,4 +152,19 @@ router.delete('/myrequestdelete/:id',function(req,res){
 //     }
 // );
 
+router.put('/update/:id?',function(req,res){
+    var id =req.params.id;
+    var request = req.body;
+    console.log(id);
+    Request.updateMyRequest(id,request, function(err,id1){
+        if(err){
+            res.json(err);
+        }
+        if(id1){
+            res.json(id1);
+        }
+    })
+
+})
+
 module.exports = router;

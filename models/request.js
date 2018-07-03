@@ -30,3 +30,14 @@ module.exports.deleteMyRequest = function(id,callback){
     const quary = {_id:id};
     Request.deleteOne(quary,callback);
 }
+module.exports.updateMyRequest = function(id, request,callback){
+    const quary = {_id:id};
+    const update = {$set:{
+        sdate:request.sdate,
+        edate:request.edate,
+        reason:request.reason,
+        address:request.address,
+        mobile:request.mobile
+    }}
+    Request.findOneAndUpdate(quary, update,{new: true},callback);
+}
